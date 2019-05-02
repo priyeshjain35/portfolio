@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
-import MenuIcon from './view/components/MenuIcon/MenuIcon';
+import SidePanel from './view/components/sidePanel/SidePanel';
 
 function App() {
   return (
     <div className=''>
-      <MenuIcon isOpen={false} />
+      <SidePanel isOpen={false} />
     </div>
   );
 }
