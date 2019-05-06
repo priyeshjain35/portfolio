@@ -1,0 +1,22 @@
+.education-container{
+    position: absolute;
+    top: 3rem;
+    width: 90%;
+    left: 4rem;
+    .custom-card {
+        border: 2px solid #dee2e6;
+        border-radius: 10px;
+        box-shadow: 2px 4px 4px 2px lightgrey;
+        background: white;
+        text-align: center;
+        margin: 8px 0px 8px 0px;
+        .card-body.row {
+            .col-sm-8 {
+                text-align: left;
+            }
+            .col-sm-4 {
+                text-align: right;
+            }
+        }
+    }
+}

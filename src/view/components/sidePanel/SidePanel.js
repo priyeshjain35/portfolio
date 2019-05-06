@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import './SidePanel.scss';
 import MenuIcon from '../MenuIcon/MenuIcon';
-import About from '../about/About';
+import Routes from '../../Routes';
+import {BrowserRouter as Router, Link} from 'react-router-dom';
 
 class SidePanel extends Component {
     constructor(props) {
@@ -26,36 +27,25 @@ class SidePanel extends Component {
         const stylingClass = this.state.isOpen ? 'push-content' : '';
         const secDiv = this.state.isOpen ? 'main-content' : ''
         return (
-            <div>
+            <Router>
+                <div>
                 <div className={`sidenav ${stylingClass}`}>
-                    <div onClick={this.handleSelectMenu.bind(this, 'about')}>{'About'}</div>
-                    <div onClick={this.handleSelectMenu.bind(this, 'edus')}>{'Education & Skills'}</div>
-                    <div onClick={this.handleSelectMenu.bind(this, 'proj')}>{'Projects'}</div>
-                    <div onClick={this.handleSelectMenu.bind(this, 'cont')}>{'Contact'}</div>
+                    <Link to='/about' onClick={this.handleSelectMenu.bind(this, 'about')}>{'About'}</Link>
+                    <Link to='/eduAndSkills' onClick={this.handleSelectMenu.bind(this, 'edus')}>{'Education & Skills'}</Link>
+                    <Link to='/projects' onClick={this.handleSelectMenu.bind(this, 'proj')}>{'Projects'}</Link>
+                    <Link to='/contact' onClick={this.handleSelectMenu.bind(this, 'cont')}>{'Contact'}</Link>
                 </div>
 
-                <div className={`${secDiv} real-content`}  onClick={this.handleSideMenu.bind(this)} style={{'display': 'inline-block'}}>
+                <div className={`${secDiv} real-content`}  onClick={this.handleSideMenu.bind(this)}>
                     <span style={{'position': 'absolute', 'top': '0px'}}>
                         <MenuIcon isOpen={this.state.isOpen}
                             toggle={this.handleSideMenu.bind(this)}
                         />
                     </span>
-                    <div>
-                        <div id='about'>
-                        <About />
-                    </div>
-                    <div id='edus'>
-
-                    </div>
-                    <div id='proj'>
-
-                    </div>
-                    <div id='cont'>
-
-                    </div>
-                    </div>
                 </div>
+                <Routes />
             </div>
+            </Router>
         );
     }
 }
